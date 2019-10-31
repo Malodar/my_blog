@@ -4,8 +4,8 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'publish', 'status')
-    list_filter = ('status', 'created', 'publish',)
+    list_display = ('title', 'slug', 'publish', 'status', 'category')
+    list_filter = ('status', 'created', 'publish', 'category')
     search_fields = ('title', 'body')
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'publish'

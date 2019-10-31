@@ -56,12 +56,32 @@ My Blog
 {% endblock %}
 
 {% block content %}
-<h1>Welcome to my blog.</h1>
-    {% for post in posts_list %}
-        <div class="post">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.body }}</p>
-        </div>
-    {% endfor %}
+<!-- Start top-category-widget Area -->
+	<section class="top-category-widget-area pt-90 pb-90 ">
+		<div class="container">
+			<div class="row">
+                {% for category in categories %}
+                   <div class="col-lg-4">
+					<div class="single-cat-widget">
+						<div class="content relative">
+							<div class="overlay overlay-bg"></div>
+							<a href="#" target="_blank">
+								<div class="thumb">
+									<img class="content-image img-fluid d-block mx-auto" src="{% static 'img/blog/cat-widget1.jpg' %}" alt="">
+								</div>
+								<div class="content-details">
+									<h4 class="content-title mx-auto text-uppercase">{{ category}}</h4>
+									<span></span>
+									<p>Enjoy your social life together</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</section>
+	<!-- End top-category-widget Area -->
 
 {% endblock %}
