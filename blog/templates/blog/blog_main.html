@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block header %}
+<header id="header" class="dark">
+		<div class="container main-menu">
+			<div class="row align-items-center d-flex">
+				<div id="logo">
+					<a href="{% url 'index' %}"><img src="{% static 'img/logo2.png' %}" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container" class="ml-auto">
+					<ul class="nav-menu white">
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="portfolio.html">Portfolio</a></li>
+						<li class="menu-has-children"><a href="#">Pages</a>
+							<ul class="dark">
+								<li><a href="elements.html">Elements</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="services.html">Service</a></li>
+								<li><a href="portfolio-details.html">Portfolio Details</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a class="active" href="{% url 'blog:blog_main' %}">Blog</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+{% endblock %}
+
+{% block banner %}
+<!-- start banner Area -->
+	<section class="banner-area relative">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+						Blog Home
+					</h1>
+					<p class="link-nav">
+						<span class="box">
+							<a href="{% url 'index' %}">Home </a>
+							<a href="{% url 'blog:blog_main' %}">Blog</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to my blog.</h1>
+    {% for post in posts_list %}
+        <div class="post">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
